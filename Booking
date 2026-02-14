@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smart Tourist Guide</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+header {
+  background-color: #4CAF50;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* Places Section */
+.places-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.place-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  text-decoration: none;
+  color: black;
+  transition: 0.3s;
+}
+
+.place-card:hover {
+  transform: translateY(-5px);
+}
+
+.place-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.place-card .info {
+  padding: 15px;
+  text-align: center;
+}
+
+/* Booking Section */
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+button {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 12px;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  background: #45a049;
+}
+
+/* Chatbot */
+.chatbox {
+  max-width: 400px;
+  margin: 40px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+#chatResponse {
+  margin-top: 10px;
+  color: #333;
+}
+</style>
+
+<script>
+function bookTransport() {
+  alert("Transport Booking Successful!");
+}
+
+function chatbotReply() {
+  var userInput = document.getElementById("userInput").value.toLowerCase();
+  var response = "";
+
+  if (userInput.includes("taj")) {
+    response = "The Taj Mahal is located in Agra, Uttar Pradesh.";
+  } 
+  else if (userInput.includes("goa")) {
+    response = "Goa is famous for beaches and nightlife.";
+  } 
+  else {
+    response = "Please ask about Taj Mahal or Goa.";
+  }
+
+  document.getElementById("chatResponse").innerText = response;
+}
+</script>
+
+</head>
+<body>
+
+<header>🌍 Smart Tourist Guide</header>
+
+<!-- Famous Places Section -->
+<div class="places-container">
+
+  <a href="tajmahal.html" class="place-card">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Taj-Mahal.jpg">
+    <div class="info">
+      <h3>Taj Mahal</h3>
+      <p>One of the Seven Wonders of the World located in Agra.</p>
+    </div>
+  </a>
+
+  <a href="#" class="place-card">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Goa_Beach.jpg">
+    <div class="info">
+      <h3>Goa</h3>
+      <p>Famous for beaches, nightlife and Portuguese heritage.</p>
+    </div>
+  </a>
+
+</div>
+
+<!-- Transport Booking Section -->
+<div class="container">
+  <h2>🚗 Transport Booking</h2>
+
+  <input type="text" placeholder="Enter Name">
+  <input type="date">
+  
+  <select>
+    <option>Select Destination</option>
+    <option>Taj Mahal</option>
+    <option>Goa</option>
+  </select>
+
+  <button onclick="bookTransport()">Book Now</button>
+</div>
+
+<!-- Chatbot Section -->
+<div class="chatbox">
+  <h2>🤖 Tourist Chatbot</h2>
+  <input type="text" id="userInput" placeholder="Ask about a place...">
+  <button onclick="chatbotReply()">Ask</button>
+  <div id="chatResponse"></div>
+</div>
+
+</body>
+</html>
